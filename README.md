@@ -7,7 +7,7 @@ expected in `values.yaml`.
 
 ## Installation
 
-Currently, `helm-values-gen` can be installed as go binary.
+Currently, `helm-values-gen` can be installed as Go binary.
 In the future it will be (additionally) possible to install it as a helm plugin.
 
 ```nohighlight
