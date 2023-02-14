@@ -45,25 +45,25 @@ values.schema.json
 
 ```json
 {
+  "type": "object",
   "properties": {
     "addresses": {
+      "type": "array",
       "items": {
+        "type": "object",
         "properties": {
           "city": {
             "type": "string",
             "default": "New York"
           }
-        },
-        "type": "object"
+        }
       },
-      "type": "array"
     },
     "lastName": {
       "type": "string",
       "default": "Doe"
     }
-  },
-  "type": "object"
+  }
 }
 ```
 
@@ -80,18 +80,19 @@ To specify a default value for an array consider the following example:
 
 ```json
 {
+  "type": "object",
   "properties": {
     "addresses": {
+      "type": "array",
       "items": {
+        "type": "object"
         "properties": {
           "city": {
             "type": "string",
             "default": "New York"
           }
-        },
-        "type": "object"
+        }
       },
-      "type": "array",
       "default": [
         {
           "city": "New York"
@@ -102,8 +103,7 @@ To specify a default value for an array consider the following example:
       "type": "string",
       "default": "Doe"
     }
-  },
-  "type": "object"
+  }
 }
 ```
 
