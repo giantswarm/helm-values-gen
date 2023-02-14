@@ -16,9 +16,6 @@ go install github.com/giantswarm/helm-values-gen@latest
 
 ## Usage
 
-Executing `schemalint verify` without any options will check whether a file is
-valid JSON Schema and whether it is normalized.
-
 ```nohighlight
 $ helm-values-gen values.schema.json -o values.yaml
 
