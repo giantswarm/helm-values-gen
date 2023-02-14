@@ -1,30 +1,25 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/template.svg?style=shield)](https://circleci.com/gh/giantswarm/template)
+# helm-values-gen
 
-# REPOSITORY_NAME
+`helm-values-gen` generates a YAML payload that contains all default values in a given JSON schema.
+This is useful when maintaining a helm project with a `values.schema.json` that already contains the default values, which are expected in `values.yaml`.
 
-This is a template repository containing some basic files every repository
-needs.
+## Installation
 
-To use it just hit `Use this template` button or [this link][generate].
+Currently, `helm-values-gen` can be installed as go binary.
+In the future it will be (additionally) possible to install it as a helm plugin.
 
-Things to do with your newly created repo:
+```nohighlight
+go install github.com/giantswarm/helm-values-gen@latest
+```
 
-1. Run`devctl replace -i "REPOSITORY_NAME" "$(basename $(git rev-parse
-   --show-toplevel))" --ignore '.git/**' '**'`.
-2. Run `devctl replace -i "template" "$(basename $(git rev-parse
-   --show-toplevel))" --ignore '.git/**' '**'`.
-3. Go to https://github.com/giantswarm/REPOSITORY_NAME/settings and make sure `Allow
-   merge commits` box is unchecked and `Automatically delete head branches` box
-   is checked.
-4. Go to https://github.com/giantswarm/REPOSITORY_NAME/settings/access and add
-   `giantswarm/bots` with `Write` access and `giantswarm/employees` with
-   `Admin` access.
-5. Add this repository to https://github.com/giantswarm/github.
-6. Create quay.io docker repository if needed.
-7. Add the project to the CircleCI:
-   https://circleci.com/setup-project/gh/giantswarm/REPOSITORY_NAME
-8. Change the badge (with style=shield):
-   https://circleci.com/gh/giantswarm/REPOSITORY_NAME.svg?style=shield&circle-token=TOKEN_FOR_PRIVATE_REPO
-   If this is a private repository token with scope `status` will be needed.
+## Usage
 
-[generate]: https://github.com/giantswarm/template/generate
+Executing `schemalint verify` without any options will check whether a file is valid JSON Schema and whether it is normalized.
+
+```nohighlight
+$ helm-values-gen values.schema.json -o values.yaml
+
+Wrote default values to values.yaml
+```
+
+Use `--help` to learn about more options.

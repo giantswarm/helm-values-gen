@@ -1,0 +1,43 @@
+{
+  "$id": "https://example.com/person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "addresses": {
+      "items": {
+        "properties": {
+          "city": {
+            "type": "string",
+            "default": "New York"
+          },
+          "state": {
+            "type": "string",
+            "default": "NY"
+          },
+          "street": {
+            "type": "string",
+            "default": "123 Main St"
+          },
+          "zip": {
+            "type": "string",
+            "default": "12345"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "age": {
+      "type": "integer",
+      "default": 21
+    },
+    "firstName": {
+      "type": "string",
+      "default": "John"
+    },
+    "lastName": {
+      "type": "string",
+      "default": "Doe"
+    }
+  },
+  "type": "object"
+}

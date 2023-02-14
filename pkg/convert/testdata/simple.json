@@ -1,0 +1,23 @@
+{
+  "$id": "https://example.com/person.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "age": {
+      "type": "integer",
+      "default": 21
+    },
+    "lastName": {
+      "type": "string",
+      "default": "Doe"
+    },
+    "height": {
+      "type": "number",
+      "default": 1.78
+    },
+    "isAdult": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "type": "object"
+}

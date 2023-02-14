@@ -1,0 +1,43 @@
+attachCapzControllerIdentity: false
+azure:
+  azureClusterIdentity:
+    name: cluster-identity
+    namespace: org-giantswarm
+  location: westeurope
+  subscriptionId: PLACEHOLDER
+clusterDescription: test
+clusterName: ""
+controlPlane:
+  etcdVolumeSizeGB: 10
+  instanceType: Standard_D4s_v3
+  replicas: 3
+  rootVolumeSizeGB: 50
+defaults:
+  evictionMinimumReclaim: imagefs.available=5%,memory.available=100Mi,nodefs.available=5%
+  hardEvictionThresholds: memory.available<200Mi,nodefs.available<10%,nodefs.inodesFree<3%,imagefs.available<10%,pid.available<20%
+  softEvictionGracePeriod: memory.available=30s,nodefs.available=2m,nodefs.inodesFree=1m,imagefs.available=2m,pid.available=1m
+  softEvictionThresholds: memory.available<500Mi,nodefs.available<15%,nodefs.inodesFree<5%,imagefs.available<15%,pid.available<30%
+enablePerClusterIdentity: false
+includeClusterResourceSet: true
+kubernetesVersion: 1.24.8
+machineDeployments:
+- customNodeLabels: []
+  customNodeTaints: []
+  disableHealthCheck: false
+  instanceType: Standard_D2s_v3
+  name: md00
+  replicas: 3
+  rootVolumeSizeGB: 50
+machinePools: []
+network:
+  hostCIDR: 10.0.0.0/8
+  podCIDR: 192.168.0.0/16
+  serviceCIDR: 172.31.0.0/16
+oidc:
+  caPem: ""
+  clientId: ""
+  groupsClaim: ""
+  issuerUrl: ""
+  usernameClaim: ""
+organization: ""
+sshSSOPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDnfhWCBrplizz7XzX1Sc+I57TvCe+EEARTeYBuqWa3BRNVysSdPdbxHHJ6qzVY66snO4wq4yokno0yBdA7hAV73Y38/yZEzdKux+UyRwrnoerOdOw/590U6Pkm1mB9YhUQ4XrS5j67ZNUc/LeSQ+aWf65HATcLUccfIIVNt7OOEl+VGvg9Pvoukg+A/mSoYdBQssGNbzB+8niK5ohIsKMxS0aqaLlEZMtXxZuD8YDvIRO2m8n+djQ6wqi4HTVcBKRREa5blVu3Ug42O4XDvcdHxqHyPCUSU7ho/PJDR1B45gub+hKt/O4EdtzVZE4Z7hGQEfXUd5C0mbg+V5gcxLtt
