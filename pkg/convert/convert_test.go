@@ -22,6 +22,11 @@ func TestValidateFlags(t *testing.T) {
 			goldenPath: "testdata/simple.golden.yaml",
 		},
 		{
+			name:       "simple with missing defaults",
+			schemaPath: "testdata/simple_with_missing_defaults.json",
+			goldenPath: "testdata/simple_with_missing_defaults.golden.yaml",
+		},
+		{
 			name:       "nested objects",
 			schemaPath: "testdata/nested_objects.json",
 			goldenPath: "testdata/nested_objects.golden.yaml",
