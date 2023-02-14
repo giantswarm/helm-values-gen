@@ -2,7 +2,7 @@
 
 `helm-values-gen` generates a YAML payload that contains all default values in
 a given JSON schema. This is useful when maintaining a helm project with a
-`values.schema.json` that already contains the default values, which are
+`values.schema.json` that already contains the default values that are
 expected in `values.yaml`.
 
 ## Installation
