@@ -1,0 +1,8 @@
+address:
+  city: New York
+  state: NY
+  street: 123 Main St
+  zip: "12345"
+age: 21
+firstName: John
+lastName: Doe

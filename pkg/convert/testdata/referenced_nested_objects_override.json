@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address": {
+      "$ref": "address.json",
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string",
+          "default": "Broadway"
+        }
+      }
+    },
+    "age": {
+      "type": "integer",
+      "default": 21
+    },
+    "firstName": {
+      "type": "string",
+      "default": "John"
+    },
+    "lastName": {
+      "type": "string",
+      "default": "Doe"
+    }
+  },
+  "type": "object"
+}

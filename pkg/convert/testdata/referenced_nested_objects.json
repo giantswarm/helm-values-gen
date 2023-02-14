@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address": {
+      "$ref": "address.json"
+    },
+    "age": {
+      "type": "integer",
+      "default": 21
+    },
+    "firstName": {
+      "type": "string",
+      "default": "John"
+    },
+    "lastName": {
+      "type": "string",
+      "default": "Doe"
+    }
+  },
+  "type": "object"
+}

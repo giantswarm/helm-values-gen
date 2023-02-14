@@ -1,30 +1,116 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/template.svg?style=shield)](https://circleci.com/gh/giantswarm/template)
+# helm-values-gen
 
-# REPOSITORY_NAME
+`helm-values-gen` generates a YAML payload that contains all default values in
+a given JSON schema. This is useful when maintaining a helm project with a
+`values.schema.json` that already contains the default values that are
+expected in `values.yaml`.
 
-This is a template repository containing some basic files every repository
-needs.
+## Installation
 
-To use it just hit `Use this template` button or [this link][generate].
+Currently, `helm-values-gen` can be installed as Go binary.
+In the future it will be (additionally) possible to install it as a helm plugin.
 
-Things to do with your newly created repo:
+```nohighlight
+go install github.com/giantswarm/helm-values-gen@latest
+```
 
-1. Run`devctl replace -i "REPOSITORY_NAME" "$(basename $(git rev-parse
-   --show-toplevel))" --ignore '.git/**' '**'`.
-2. Run `devctl replace -i "template" "$(basename $(git rev-parse
-   --show-toplevel))" --ignore '.git/**' '**'`.
-3. Go to https://github.com/giantswarm/REPOSITORY_NAME/settings and make sure `Allow
-   merge commits` box is unchecked and `Automatically delete head branches` box
-   is checked.
-4. Go to https://github.com/giantswarm/REPOSITORY_NAME/settings/access and add
-   `giantswarm/bots` with `Write` access and `giantswarm/employees` with
-   `Admin` access.
-5. Add this repository to https://github.com/giantswarm/github.
-6. Create quay.io docker repository if needed.
-7. Add the project to the CircleCI:
-   https://circleci.com/setup-project/gh/giantswarm/REPOSITORY_NAME
-8. Change the badge (with style=shield):
-   https://circleci.com/gh/giantswarm/REPOSITORY_NAME.svg?style=shield&circle-token=TOKEN_FOR_PRIVATE_REPO
-   If this is a private repository token with scope `status` will be needed.
+## Usage
 
-[generate]: https://github.com/giantswarm/template/generate
+```nohighlight
+$ helm-values-gen values.schema.json -o values.yaml
+
+Wrote default values to values.yaml
+```
+
+Use `--help` to learn about more options.
+
+## Details
+
+As JSON schemas can be nested deeply, we need to define which default values
+will be contained in the resulting payload.
+The tool follows these steps:
+
+1. Start in the root of the schema
+2. If there is a default value, add it to the payload.
+3. Recurse into all properties.
+
+**Note**:
+The tool does not recurse into the `items` keyword of an array.
+To specify default values for an array you have to set a default on the level
+of the array.
+
+Consider the following example:
+
+values.schema.json
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "default": "New York"
+          }
+        }
+      },
+    },
+    "lastName": {
+      "type": "string",
+      "default": "Doe"
+    }
+  }
+}
+```
+
+values.yaml
+
+```yaml
+lastName: Doe
+```
+
+The default value `addresses[].city = "New York"` is not reflected in
+`values.yaml`.
+
+To specify a default value for an array consider the following example:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "object"
+        "properties": {
+          "city": {
+            "type": "string",
+            "default": "New York"
+          }
+        }
+      },
+      "default": [
+        {
+          "city": "New York"
+        }
+      ]
+    },
+    "lastName": {
+      "type": "string",
+      "default": "Doe"
+    }
+  }
+}
+```
+
+values.yaml
+
+```yaml
+addresses:
+  - city: New York
+lastName: Doe
+```
