@@ -1,6 +1,7 @@
 package root
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -12,7 +13,7 @@ func handleOutput(flag *flag, marshalled []byte) error {
 	force := flag.force
 
 	if output == "" {
-		print(string(marshalled))
+		fmt.Print(string(marshalled))
 		return nil
 	}
 
