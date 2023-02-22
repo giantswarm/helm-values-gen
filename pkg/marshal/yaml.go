@@ -2,7 +2,7 @@ package marshal
 
 import (
 	"github.com/giantswarm/microerror"
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 )
 
 func ToYaml(data interface{}) ([]byte, error) {
