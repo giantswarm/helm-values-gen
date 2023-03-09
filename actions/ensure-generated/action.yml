@@ -1,0 +1,14 @@
+name: Verify values.yaml
+description: Ensure that values.yaml is generated from values.schema.json
+runs: 
+  using: composite
+  steps:
+    - name: Install helm-values-gen
+      uses: giantswarm/install-binary-action@v1.1.0
+      with:
+        binary: "helm-values-gen"
+        version: "0.1.0"
+
+    - name: Run helm-values-gen
+      shell: bash
+      run: ${{ github.action_path }}/verify-values-yaml.sh ${{ inputs.rule-set }}
