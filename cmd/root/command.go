@@ -1,6 +1,10 @@
 package root
 
-import "github.com/spf13/cobra"
+import (
+	"github.com/spf13/cobra"
+	
+	"github.com/giantswarm/helm-values-gen/pkg/project"
+)
 
 func New() *cobra.Command {
 	flag := &flag{}
@@ -22,6 +26,7 @@ value will be used, if not then this tool won't traverse into the array's items.
 		ArgAliases: []string{"PATH"},
 		RunE:       runner.run,
 		PreRunE:    runner.preRun,
+		Version:    project.Version(),
 	}
 	flag.init(rootCmd)
 
