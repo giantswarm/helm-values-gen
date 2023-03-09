@@ -8,7 +8,7 @@ runs:
       with:
         binary: "helm-values-gen"
         version: "0.1.0"
-        smoke_test: "${binary}"
+        smoke_test: "${binary} -v"
 
     - name: Run helm-values-gen
       shell: bash
