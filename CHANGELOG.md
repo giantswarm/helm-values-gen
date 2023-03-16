@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2023-03-09
 
+- Add a reusable composite GitHub action that calls `helm-values-gen`. 
 - Add version command.
 
 ## [0.1.0] - 2023-02-28
