@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/giantswarm/helm-values-gen/cmd"
+	"github.com/giantswarm/helm-values-gen/v2/cmd"
 )
 
 func main() {
