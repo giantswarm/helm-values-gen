@@ -3,10 +3,37 @@
 
 name: Update action yml
 on:
-  pull_request:
-    types: 
-      - opened
+  workflow_run:
+    workflows: ["Create Release PR"]
+    types:
+      - completed
+  workflow_dispatch: # for debugging
 jobs:
+  get_version_test:
+    name: Get version from PR title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check gh cli
+        run: gh --version
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+          cache-dependency-path: .github/find_release_pr/package-lock.json
+      - name: Install npm packages
+        working-directory: .github/find_release_pr
+        run: "npm ci"
+      # - name: Install GitHub CLI
+      #   run: |
+      #     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+      #     sudo apt-add-repository https://cli.github.com/packages
+      #     sudo apt update
+      #     sudo apt install gh
+      - name: "Run local js action"
+        run: node .github/find_release_pr/index.js
   get_version:
     name: Get version from PR title
     runs-on: ubuntu-latest
