@@ -1,7 +1,7 @@
 package convert
 
 import (
-	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
+	"github.com/giantswarm/helm-values-gen/v2/pkg/jsonschema"
 	"github.com/giantswarm/microerror"
 	"github.com/imdario/mergo"
 )
