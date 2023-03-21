@@ -1,3 +1,5 @@
+// This script searches the current repository for a release PR, extracts the
+// version and branch from it, and sets them as outputs.
 const core = require('@actions/core');
 const exec = require('@actions/exec');
 
