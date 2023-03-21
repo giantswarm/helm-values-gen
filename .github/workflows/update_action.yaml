@@ -42,7 +42,8 @@ jobs:
       - name: "Run local js action"
         id: get_version
         run: node .github/find_release_pr/index.js
-
+        env:
+          GH_TOKEN: ${{ github.token }}
 
   update_version:
     name: Update version in action.yml
