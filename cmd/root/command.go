@@ -2,8 +2,8 @@ package root
 
 import (
 	"github.com/spf13/cobra"
-	
-	"github.com/giantswarm/helm-values-gen/pkg/project"
+
+	"github.com/giantswarm/helm-values-gen/v2/pkg/project"
 )
 
 func New() *cobra.Command {
