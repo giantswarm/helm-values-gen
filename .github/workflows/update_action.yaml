@@ -7,11 +7,8 @@ on:
     workflows: ["Create Release PR"]
     types:
       - completed
-  workflow_dispatch: # for debugging
-  pull_request: # for debugging
-    types: 
-      - opened
-      - reopened
+  push: {}
+
 jobs:
   get_version:
     name: Get version from PR title
