@@ -3,7 +3,7 @@ package cmd
 import (
 	"os"
 
-	"github.com/giantswarm/helm-values-gen/cmd/root"
+	"github.com/giantswarm/helm-values-gen/v2/cmd/root"
 )
 
 func Execute() {

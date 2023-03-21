@@ -1,4 +1,4 @@
-module github.com/giantswarm/helm-values-gen
+module github.com/giantswarm/helm-values-gen/v2
 
 go 1.20
 
