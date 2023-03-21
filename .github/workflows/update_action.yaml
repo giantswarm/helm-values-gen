@@ -7,7 +7,6 @@ on:
     workflows: ["Create Release PR"]
     types:
       - completed
-  push: {}
 
 jobs:
   get_version:
@@ -30,12 +29,6 @@ jobs:
       - name: Install npm packages
         working-directory: .github/find_release_pr
         run: "npm ci"
-      # - name: Install GitHub CLI
-      #   run: |
-      #     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-      #     sudo apt-add-repository https://cli.github.com/packages
-      #     sudo apt update
-      #     sudo apt install gh
       - name: "Run local js action"
         id: get_version
         run: node .github/find_release_pr/index.js
