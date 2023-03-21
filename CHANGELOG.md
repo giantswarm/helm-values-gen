@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Fix update action workflow trigger.
+
 ## [0.2.0] - 2023-03-09
 
 - Improve update action workflow.
