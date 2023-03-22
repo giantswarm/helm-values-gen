@@ -7,7 +7,7 @@ runs:
       uses: giantswarm/install-binary-action@v1.1.0
       with:
         binary: "helm-values-gen"
-        version: "1.0.0"
+        version: "1.0.1"
         smoke_test: "${binary} -v"
     - name: Run helm-values-gen
       shell: bash
