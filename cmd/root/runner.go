@@ -1,9 +1,9 @@
 package root
 
 import (
-	"github.com/giantswarm/helm-values-gen/v2/pkg/convert"
-	"github.com/giantswarm/helm-values-gen/v2/pkg/jsonschema"
-	"github.com/giantswarm/helm-values-gen/v2/pkg/marshal"
+	"github.com/giantswarm/helm-values-gen/pkg/convert"
+	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
+	"github.com/giantswarm/helm-values-gen/pkg/marshal"
 	"github.com/giantswarm/microerror"
 	"github.com/spf13/cobra"
 )

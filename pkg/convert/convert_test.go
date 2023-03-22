@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/giantswarm/helm-values-gen/v2/pkg/jsonschema"
+	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
 	"github.com/google/go-cmp/cmp"
 	"sigs.k8s.io/yaml"
 )
