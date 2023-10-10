@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/giantswarm/microerror v0.4.0
-	github.com/google/go-cmp v0.5.9
+	github.com/google/go-cmp v0.6.0
 	github.com/imdario/mergo v0.3.13
 	github.com/santhosh-tekuri/jsonschema/v5 v5.3.1
 	github.com/spf13/cobra v1.7.0
