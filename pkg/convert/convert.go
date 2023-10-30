@@ -1,9 +1,10 @@
 package convert
 
 import (
-	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
 	"github.com/giantswarm/microerror"
 	"github.com/imdario/mergo"
+
+	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
 )
 
 // Creates a nested map that holds all default values specified by the schema.

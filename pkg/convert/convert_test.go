@@ -5,9 +5,10 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
 	"github.com/google/go-cmp/cmp"
 	"sigs.k8s.io/yaml"
+
+	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
 )
 
 func TestValidateFlags(t *testing.T) {
