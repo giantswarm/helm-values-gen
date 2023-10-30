@@ -74,9 +74,10 @@ func TestValidateFlags(t *testing.T) {
 			if err != nil {
 				t.Fatalf("error building default values:\n%v", err)
 			}
-
-			convertJsonNumbers(&defaultValues)
-
+			err = convertJsonNumbers(&defaultValues)
+			if err != nil {
+				t.Fatalf("error converting json numbers:\n%v", err)
+			}
 			golden, err := loadGolden(tc.goldenPath)
 			if err != nil {
 				t.Fatalf("error loading golden file:\n%v", err)
