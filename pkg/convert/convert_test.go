@@ -2,7 +2,7 @@ package convert
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -108,7 +108,7 @@ func convertJsonNumbers(defaultValues *interface{}) error {
 }
 
 func loadGolden(path string) (interface{}, error) {
-	yamlBytes, err := ioutil.ReadFile(path)
+	yamlBytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
