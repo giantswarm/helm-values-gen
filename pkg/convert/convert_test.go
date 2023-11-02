@@ -2,12 +2,13 @@ package convert
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"testing"
 
-	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
 	"github.com/google/go-cmp/cmp"
 	"sigs.k8s.io/yaml"
+
+	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
 )
 
 func TestValidateFlags(t *testing.T) {
@@ -73,9 +74,10 @@ func TestValidateFlags(t *testing.T) {
 			if err != nil {
 				t.Fatalf("error building default values:\n%v", err)
 			}
-
-			convertJsonNumbers(&defaultValues)
-
+			err = convertJsonNumbers(&defaultValues)
+			if err != nil {
+				t.Fatalf("error converting json numbers:\n%v", err)
+			}
 			golden, err := loadGolden(tc.goldenPath)
 			if err != nil {
 				t.Fatalf("error loading golden file:\n%v", err)
@@ -107,7 +109,7 @@ func convertJsonNumbers(defaultValues *interface{}) error {
 }
 
 func loadGolden(path string) (interface{}, error) {
-	yamlBytes, err := ioutil.ReadFile(path)
+	yamlBytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}

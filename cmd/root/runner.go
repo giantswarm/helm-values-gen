@@ -1,11 +1,12 @@
 package root
 
 import (
+	"github.com/giantswarm/microerror"
+	"github.com/spf13/cobra"
+
 	"github.com/giantswarm/helm-values-gen/pkg/convert"
 	"github.com/giantswarm/helm-values-gen/pkg/jsonschema"
 	"github.com/giantswarm/helm-values-gen/pkg/marshal"
-	"github.com/giantswarm/microerror"
-	"github.com/spf13/cobra"
 )
 
 type runner struct {

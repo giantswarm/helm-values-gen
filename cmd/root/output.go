@@ -22,10 +22,10 @@ func handleOutput(flag *flag, marshalled []byte) error {
 	}
 
 	file, err := createFile(output)
-	defer file.Close()
 	if err != nil {
 		return microerror.Mask(err)
 	}
+	defer file.Close()
 
 	err = writeToFile(file, marshalled)
 	if err != nil {
