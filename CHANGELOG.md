@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2023-11-23
+
 ## [1.0.2] - 2023-04-17
 
 ### Changed
@@ -37,7 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add prototype.
 
 
-[Unreleased]: https://github.com/giantswarm/helm-values-gen/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/giantswarm/helm-values-gen/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/giantswarm/helm-values-gen/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/giantswarm/helm-values-gen/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/giantswarm/helm-values-gen/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/giantswarm/helm-values-gen/compare/v0.2.0...v1.0.0
