@@ -46,7 +46,7 @@ jobs:
         with:
           ref: ${{ needs.get_version.outputs.branch }}
       - name: Update version in action.yml
-        uses: mikefarah/yq@v4.40.6
+        uses: mikefarah/yq@v4.40.7
         with:
           cmd: yq -i '.runs.steps[0].with.version = "${{ needs.get_version.outputs.version }}"' actions/ensure-generated/action.yml
       - name: Set up git identity
