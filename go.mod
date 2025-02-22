@@ -1,10 +1,12 @@
 module github.com/giantswarm/helm-values-gen
 
-go 1.20
+go 1.21
+
+toolchain go1.24.0
 
 require (
 	github.com/giantswarm/microerror v0.4.1
-	github.com/google/go-cmp v0.6.0
+	github.com/google/go-cmp v0.7.0
 	github.com/imdario/mergo v0.3.13
 	github.com/santhosh-tekuri/jsonschema/v5 v5.3.1
 	github.com/spf13/cobra v1.9.1
