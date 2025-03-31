@@ -109,7 +109,7 @@ func convertJsonNumbers(defaultValues *interface{}) error {
 }
 
 func loadGolden(path string) (interface{}, error) {
-	yamlBytes, err := os.ReadFile(path)
+	yamlBytes, err := os.ReadFile(path) // nolint:gosec
 	if err != nil {
 		return nil, err
 	}
