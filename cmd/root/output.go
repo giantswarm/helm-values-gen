@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/giantswarm/microerror"
 )
@@ -25,7 +26,7 @@ func handleOutput(flag *flag, marshalled []byte) error {
 	if err != nil {
 		return microerror.Mask(err)
 	}
-	defer file.Close()
+	defer func() { _ = file.Close() }()
 
 	err = writeToFile(file, marshalled)
 	if err != nil {
@@ -42,6 +43,7 @@ func fileExists(path string) bool {
 }
 
 func createFile(path string) (*os.File, error) {
+	path = filepath.Clean(path)
 	file, err := os.Create(path)
 	if err != nil {
 		return nil, microerror.Maskf(outputError, "Error creating file %s:\n%s", path, err)
