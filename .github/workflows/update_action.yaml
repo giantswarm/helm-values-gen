@@ -19,7 +19,7 @@ jobs:
       - name: Check gh cli
         run: gh --version
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Setup node.js
         uses: actions/setup-node@v4
         with:
@@ -42,7 +42,7 @@ jobs:
     if: needs.get_version.outputs.version
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           ref: ${{ needs.get_version.outputs.branch }}
       - name: Update version in action.yml
