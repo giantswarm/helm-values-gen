@@ -2,7 +2,7 @@ module github.com/giantswarm/helm-values-gen
 
 go 1.22
 
-toolchain go1.25.0
+toolchain go1.25.1
 
 require (
 	github.com/giantswarm/microerror v0.4.1
