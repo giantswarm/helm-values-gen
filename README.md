@@ -138,4 +138,3 @@ jobs:
         id: run-helm-values-gen
         uses: giantswarm/helm-values-gen/actions/ensure-generated@v1
 ```
-
