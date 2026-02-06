@@ -139,13 +139,3 @@ jobs:
         uses: giantswarm/helm-values-gen/actions/ensure-generated@v1
 ```
 
-## Major Releases
-
-This repository uses [floating tags](https://github.com/giantswarm/floating-tags-action).
-Other repositories that use helm-values-gen point to major floating tag versions,
-like `v1`. That means that all minor and patch releases will be automatically
-rolled out to these repositories.
-When doing a major release the following steps have to be completed:
-1. Create a new major floating tag under "Actions -> Ensure major version tags -> Run Workflow"
-2. Update all references to schemalint.
-    1. devctl: `pkg/gen/input/workflows/internal/file/cluster_app_schema_validation.yaml.template`
