@@ -24,6 +24,8 @@ workflows:
             branches:
               ignore: /.*/
       - architect/upload-release-assets:
+          context: architect
+          binary: helm-values-gen
           requires:
             - go-build
           filters:
