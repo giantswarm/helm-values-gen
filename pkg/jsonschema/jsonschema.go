@@ -7,7 +7,7 @@ import (
 	"runtime"
 
 	"github.com/giantswarm/microerror"
-	jsonschemalib "github.com/santhosh-tekuri/jsonschema/v5"
+	jsonschemalib "github.com/santhosh-tekuri/jsonschema/v6"
 )
 
 type Schema struct {
