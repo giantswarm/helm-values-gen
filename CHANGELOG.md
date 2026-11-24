@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Release binaries now include darwin/amd64, darwin/arm64, windows/amd64, and windows/arm64 alongside the existing linux targets. Windows binaries are named `helm-values-gen-windows-<arch>.exe`.
 - Make pre-commit pass with `golangci-lint` 2.15.0: exclude `goconst` from test files.
+- CI: `update_action.yaml` runs only for a successful, push-triggered "Create Release PR" run in this repository, and its token is limited to `contents: write` and `pull-requests: read`. A fork pull request could add a workflow with the same name and trigger it (giantswarm/giantswarm#39472).
 
 ## [1.0.4] - 2025-01-22
 
